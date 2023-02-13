@@ -6,6 +6,9 @@ import { withNavigation } from "react-navigation";
 
 const ResultsList = ({title, results, navigation}) => {
 
+  if(!results.length){
+    return null;
+  }
 
 return (
   <View style={styles.container}>
