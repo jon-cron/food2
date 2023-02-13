@@ -5,10 +5,13 @@ import SearchBar from "../Components/SearchBar.js";
 
 const SearchScreen = () => {
   const [term, setTerm] = useState('')
-  console.log(term)
+  // console.log(term)
   return (
     <View>
-      <SearchBar term={term} onTermChange={newTerm => setTerm(newTerm)}/>
+      <SearchBar 
+        term={term}
+        onTermChange={newTerm => setTerm(newTerm)}
+        onTermSubmit={() => console.log(`${term} was submitted`)}/>
     </View>
   )
 };

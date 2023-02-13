@@ -3,7 +3,7 @@ import React  from 'react'
 import {Feather} from '@expo/vector-icons'
 // NOTE to use icons import the library from expo and use the library as a component and the name is the exact icon you wish to use.
 // NOTE 'https://icons.expo.fyi/' use this to find icons and which library to use
-const SearchBar = ({term, onTermChange}) => {
+const SearchBar = ({term, onTermChange, onTermSubmit}) => {
     return (
       <View style={styles.bg}>
         <Feather 
@@ -12,10 +12,11 @@ const SearchBar = ({term, onTermChange}) => {
           autoCapitalize="none"
           autoCorrect={false}
           // NOTE it is generally a good idea to set autoCapitalize="none" and autoCorrect={false} in an input field
-          onChangeText={newTerm => onTermChange(newTerm)}
           value={term}
           style={styles.inputStyle}
-          placeholder="   Search"/>
+          placeholder="   Search"
+          onChangeText={onTermChange}
+          onEndEditing={onTermSubmit}/>
       </View>
     )
   }
